@@ -1,21 +1,28 @@
+
+telephone = "19307493070"
+password = "1234qwer"
+
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.common.by import By
+import time
 
 print('尝试打开网站')
 
 # 创建 WebDriver 对象
 wd = webdriver.Edge(service=Service(r'C:\Edge_WebDriver\msedgedriver.exe'))
 
-wd.implicitly_wait(10)
+wd.maximize_window() 
+
+wd.implicitly_wait(5)
 
 wd.get('http://csu.fanya.chaoxing.com/portal')
 
-print('打开网页成功,请登录.登录完成应该自动转跳到学习空间(此时你的网址应该是http://i.mooc.chaoxing.com/,网页标题为"中南大学"),请确保你浏览器打开的网页只有学习空间,然后选择终端,按enter继续')
+print('打开网页成功')
 
 wd.find_element(By.CLASS_NAME, 'loginSub').click()
-element = wd.find_element(By.CLASS_NAME, 'ipt-tel').send_keys('19307493070')
-element = wd.find_element(By.CLASS_NAME, 'ipt-pwd').send_keys('1234qwer')
+element = wd.find_element(By.CLASS_NAME, 'ipt-tel').send_keys(telephone)
+element = wd.find_element(By.CLASS_NAME, 'ipt-pwd').send_keys(password)
 element = wd.find_element(By.ID, 'phoneLoginBtn').click()
 
 while(1):
@@ -88,17 +95,80 @@ print('开始自动刷课')
 
 element.click()
 
-wd.switch_to.default_content()
-print('成功改变框架')
-wd.switch_to.frame('iframe')
-print('成功改变框架')
-wd.switch_to.frame('ans-attach-online ans-insertvideo-online')
-print('成功改变框架')
-print('尝试寻找视频资源')
-video = wd.find_elements(By.CLASS_NAME, 'vjs-poster')
-if video != []:
-    print('找到视频')
-    element.find_element(By.CLASS_NAME, 'vjs-big-play-button').click()
+
+speed = 1
+ 
+
+while(1):
+    wd.switch_to.default_content()
+    print('成功进入默认框架')
+    
+    wd.switch_to.frame('iframe')
+    print('成功进入网页框架')
+    try:
+        wd.switch_to.frame(wd.find_element(By.CSS_SELECTOR, '[jobid]'))
+        print('成功进入视频框架')
+        print('尝试寻找视频资源')
+        videos = wd.find_elements(By.CLASS_NAME, 'vjs-big-play-button')
+        if videos != []:
+            
+            print('找到视频,开始播放')
+            for video in videos:
+                
+                complete = 0
+                video.click()
+                
+            if speed == 1:
+                #转2倍速
+                a = wd.find_element(By.CSS_SELECTOR, '[title="播放速度"]')
+                
+                for i in range(0,3):
+                    
+                    a.click()
+                    
+                speed = 2
+            
+            
+            #尝试答题
+            while(1):
+                time.sleep(1)
+                try:
+                    element = wd.find_element(By.CLASS_NAME, 'tkTopic_title')
+                    print('找到问题')
+                
+                    while(1):
+                        for i in [1,2,3,4]:
+                            time.sleep(1)
+                            try:
+                                wd.find_element(By.CSS_SELECTOR, f'.tkItem_ul > li:nth-child({i})').click()
+                                print(f'尝试第{i}项')
+                                wd.find_element(By.ID, 'videoquiz-submit').click()
+                                print('点击提交')
+                                
+                            except:
+                                try:
+                                    wd.find_element(By.ID, 'videoquiz-continue').click()
+                                    print('点击继续')
+                                except:
+                                    pass
+                        element = wd.find_element(By.CSS_SELECTOR, '[aria-valuenow]')
+                        if element.get_attribute('aria-valuenow') == "100.00":
+                            complete = 1
+                            break
+                except: 
+                    if complete == 1:
+                        break
+    except:
+        pass
+                                
+                                
+                            
+            
+    finally:
+        wd.switch_to.default_content()
+        print('成功进入默认框架')
+        wd.find_element(By.ID, 'prevNextFocusNext').click()
+        print('进入下一节')
 
 
 # print('你想刷第几章?(输入阿拉伯数字1,2,3等),如果想刷多章,不同章需要用空格空开,例如想刷全部十个章节,请输入1 2 3 4 5 6 7 8 9 10按enter')
@@ -110,5 +180,5 @@ if video != []:
 #     element = elements[number]
 #     element1 = element.find_element(By.)
 
-print('程序结束,按enter结束')
+print('程序结束,在终端中按enter结束')
 input()
