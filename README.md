@@ -70,8 +70,13 @@
 ![image](https://github.com/yuan-minglongze/beyondstars/assets/129572345/ded8d25e-fee5-4ae9-91d4-4bcad69fb569)
 
 
+### 3.下载我的代码
 
-## 开始运行程序
+在这个页面上 code -> download zip
+
+
+
+### 4.打开程序
 
 打开 idle
 
