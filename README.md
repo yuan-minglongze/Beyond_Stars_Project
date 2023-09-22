@@ -2,12 +2,12 @@
 
 ## 这是什么程序?
 
-这是完全由我自主编写的中南大学2023年秋近代史纲要mooc刷课小程序.
+这是完全由我自主编写的中南大学2023年秋近代史纲要mooc刷课脚本.
 
 使用python语言和selenium库,进行网页自动操作.
 
 
-这是我写的第一个发布在GitHub上的开源程序,也是迄今为止我做的工程量最大的程序.我用了3天时间,查阅了大量资料,逃了无数节课(bushi)来完成
+这是我写的第一个发布在GitHub上的开源程序,也是迄今为止我做的工程量最大的程序.我用了3天时间,查阅了大量资料,逃了无数节课(bushi)来完成.
 
 因为是用在超星平台的,所以我命名为*beyondstars project*
 
@@ -41,9 +41,19 @@
 - **python**
 - **Microsoft edge(windows10,11自带浏览器)**
 - **Microsoft edge webdriver**
+- 当然还有我写的 beyondstars.py
+
+>第一次用GitHub不会下载beyondstars.py?
+>我把方法写在这里
+>在这个界面上点击beyondstars.py
+><img width="1269" alt="Snipaste_2023-09-22_16-30-43" src="https://github.com/yuan-minglongze/beyondstars/assets/129572345/b9207332-26bf-464c-8fc3-ba73507fdc9e">
+>再点击下载(我用红线框出来了)
+><img width="1269" alt="Snipaste_2023-09-22_16-31-35" src="https://github.com/yuan-minglongze/beyondstars/assets/129572345/3c6b78a9-cae7-4797-a013-2acadaf290b6">
 
 
-我已经把安装程序(msedgedriver.exe不需要安装,直接复制粘贴到你常用的文件夹下就可以了)放在prepare文件夹中了,大家直接在github下载下来运行其中的安装程序就可以了.
+
+
+我已经把安装程序放在prepare文件夹中了(msedgedriver.exe不需要安装,直接复制粘贴到你常用的文件夹下就可以了),大家直接在github下载下来运行其中的安装程序就可以了.
 
 或者如果你不信任我发的安装程序的话(话说为什么会不信任我)你可以点击下面的链接自行下载
 (不过edge应该都有吧,所以大多数人应该只需要下载python和webdriver)
@@ -52,7 +62,8 @@
 [Python(包含python IDLE) 下载](https://www.python.org/downloads/)
 
 
-[Microsoft Edge 下载](https://www.microsoft.com/zh-cn/edge/download)
+[Microsoft Edge 下载](https://www.microsoft.com/zh-cn/edge/download)<img width="1269" alt="Snipaste_2023-09-22_16-30-43" src="https://github.com/yuan-minglongze/beyondstars/assets/129572345/437c63dc-d6fc-4cf4-b983-d2aaa341b3d2">
+
 
 
 [Microsoft Edge WebDriver 下载](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)  **(注意这个下载下来是一个压缩文件,直接解压缩得到的msedgedriver.exe就是你需要的东西,直接复制粘贴到你常用的文件夹下就可以了)**
