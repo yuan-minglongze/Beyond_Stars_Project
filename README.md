@@ -7,7 +7,7 @@
 使用python语言和selenium库,进行网页自动操作.
 
 
-这是我写的第一个发布在GitHub上的开源程序,也是迄今为止我做的工程量最大的程序.
+这是我写的第一个发布在GitHub上的开源程序,也是迄今为止我做的工程量最大的程序.用掉了我3天时间,查阅了大量资料,逃了无数节课(bushi)
 
 因为是用在超星平台的,所以我命名为*"beyondstars project"*
 
@@ -45,10 +45,10 @@
 [Microsoft Edge 下载](https://www.microsoft.com/zh-cn/edge/download)
 
 
-[Microsoft Edge WebDriver 下载](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)  (注意这个下载下来是一个压缩文件,直接解压缩就是webdriver本体,不需要安装)
+[Microsoft Edge WebDriver 下载](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)  **(注意这个下载下来是一个压缩文件,直接解压缩得到的msedgedriver.exe就是你需要的东西,直接复制粘贴到你常用的文件夹下就可以了)**
 
 
-或者你嫌下载速度慢,我已经把安装程序(再次强调,webdriver不需要安装,我打包的就是webdriver本身)打包为.zip了,大家直接在github下载下来解压缩再安装就可以了.
+或者你嫌下载速度慢,我已经把安装程序(再次强调,msedgedriver.exe不需要安装,直接复制粘贴到你常用的文件夹下就可以了)放在prepare文件夹中了,大家直接在github下载下来运行其中的安装程序就可以了.
 
 其中python的安装特别要注意,在启动python安装程序后,你会看到如下界面:
 
@@ -97,6 +97,6 @@ file -> open 打开beyondstars
 
 ## feedback
 
-如果遇到问题,请首先学会baidu自己的问题
+如果遇到问题,请首先学会问度娘
 
 如果解决不了,也欢迎来找我
