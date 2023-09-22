@@ -10,6 +10,11 @@
 
 自动打开网站,登录,检测当前学习进度,自动继续学习,播放视频,自动回答单选题.
 
+
+提供两种版本:
+
+A版可以实现自动登录,
+
 ## 如何使用
 
 首先你需要准备运行环境,包括
@@ -23,7 +28,9 @@
 
 
 [Python 下载地址](https://www.python.org/downloads/)
+
 [Visual Studio Code 下载地址](https://code.visualstudio.com/Download)
+
 [Microsoft Edge WebDriver 下载](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
 
 
