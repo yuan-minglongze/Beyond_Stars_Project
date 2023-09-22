@@ -1,18 +1,26 @@
 #
 # 
-# hello world!
+# Hello World!
+#
 #
 # 这是一个刷中南大学2023年秋近代史纲要mooc的小程序
+# 这个程序会单独打开一个浏览器窗口并进行自动刷课
 #
 # 请注意,这个文件只能帮你自动操作大部分操作,并不能避开网站检测,
-# 启动后需要你停留在打开的网页,鼠标指针不能离开网页,也不能切换活动窗口,否则视频会暂停
-# 使用前请仔细阅读readme.md
+# 启动后需要你停留在打开的网页(就像是你自己在刷课一样),鼠标指针不能离开网页,也不能切换活动窗口,否则视频会暂停
+# 使用前请仔细阅读"https://github.com/yuan-minglongze/beyondstars"中的readme.md
 
+# 如果你已经按照readme.md操作过了,我们下面来做运行前的最后准备
 
-
-telephone = "19307493070"
-password = "1234qwer"
+# 1. 请将下面的字符串内容改为你登录学习平台的电话号码,注意这是一个字符串,不要把引号和引号前面的r搞没了
+telephone = r"your telephone here"
+# 2. 请将下面字符串内容改为你的密码,同样注意这是一个字符串,也不要把引号和r搞没了
+password = r"your password here"
+# 3. 最后输入你之前下载的msedgedriver.exe在你电脑中的地址,不知道地址怎样写的话请自行百度
 path = r'C:\Edge_WebDriver\msedgedriver.exe'
+# 4. 按F5(如果你用的是IDLE)运行这个脚本,不要再进行任何操作.直到程序新打开的浏览器被关闭,或者遇到多选题,章节测试.
+
+# 如果程序运行的有问题,别忘了在命令行中按ctrl + C可以停止程序运行
 
 
 from selenium import webdriver
@@ -201,5 +209,5 @@ while(1):
 #     element = elements[number]
 #     element1 = element.find_element(By.)
 
-print('检测到无法完成节点,程序结束,在终端中按enter结束')
+print('检测到章节检测,程序停止,在终端中按enter结束程序')
 input()
