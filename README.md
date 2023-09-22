@@ -61,6 +61,15 @@
 
 ![image](https://github.com/yuan-minglongze/beyondstars/assets/129572345/7911a5a1-07ce-4e97-9508-c8b9af2b33e3)
 
+在命令行窗口输入 `pip install selenium` 回车就开始安装selenium库
+
+安装完成后输入 `pip show selenium` 回车检查是否安装成功.成功后你应该看到界面如下:
+
+![image](https://github.com/yuan-minglongze/beyondstars/assets/129572345/ded8d25e-fee5-4ae9-91d4-4bcad69fb569)
+
+
+
+
 
 ## 目前未实现的功能
 
