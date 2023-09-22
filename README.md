@@ -44,19 +44,25 @@
 - 当然还有我写的 beyondstars.py
 
 >第一次用GitHub不会下载beyondstars.py?
+>
 >我把方法写在这里
+>
 >在这个界面上点击beyondstars.py
+>
 ><img width="1269" alt="Snipaste_2023-09-22_16-30-43" src="https://github.com/yuan-minglongze/beyondstars/assets/129572345/b9207332-26bf-464c-8fc3-ba73507fdc9e">
+>
 >再点击下载(我用红线框出来了)
+>
 ><img width="1269" alt="Snipaste_2023-09-22_16-31-35" src="https://github.com/yuan-minglongze/beyondstars/assets/129572345/3c6b78a9-cae7-4797-a013-2acadaf290b6">
 
 
+(不过edge应该都有吧,所以大多数人应该只需要下载python和webdriver)
 
 
-我已经把安装程序放在prepare文件夹中了(msedgedriver.exe不需要安装,直接复制粘贴到你常用的文件夹下就可以了),大家直接在github下载下来运行其中的安装程序就可以了.
+我已经把安装程序放在prepare文件夹中了(msedgedriver.exe不需要安装,直接复制粘贴到你常用的文件夹下就可以了),大家直接在github下载下来运行其中的安装程序就可以了(不会下载看上面).
 
 或者如果你不信任我发的安装程序的话(话说为什么会不信任我)你可以点击下面的链接自行下载
-(不过edge应该都有吧,所以大多数人应该只需要下载python和webdriver)
+
 
 
 [Python(包含python IDLE) 下载](https://www.python.org/downloads/)
