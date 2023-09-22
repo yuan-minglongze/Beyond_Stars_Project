@@ -1,6 +1,8 @@
 
 telephone = "19307493070"
 password = "1234qwer"
+path = r'C:\Edge_WebDriver\msedgedriver.exe'
+
 
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
@@ -10,7 +12,7 @@ import time
 print('尝试打开网站')
 
 # 创建 WebDriver 对象
-wd = webdriver.Edge(service=Service(r'C:\Edge_WebDriver\msedgedriver.exe'))
+wd = webdriver.Edge(service=Service(path))
 
 wd.maximize_window() 
 
@@ -169,6 +171,14 @@ while(1):
         print('成功进入默认框架')
         wd.find_element(By.ID, 'prevNextFocusNext').click()
         print('进入下一节')
+        try:
+            time.sleep(2)
+            wd.find_element(By.ID, 'popHeadFocusImg').click()
+            break
+        except:
+            pass
+        finally:
+            pass
 
 
 # print('你想刷第几章?(输入阿拉伯数字1,2,3等),如果想刷多章,不同章需要用空格空开,例如想刷全部十个章节,请输入1 2 3 4 5 6 7 8 9 10按enter')
@@ -180,5 +190,5 @@ while(1):
 #     element = elements[number]
 #     element1 = element.find_element(By.)
 
-print('程序结束,在终端中按enter结束')
+print('检测到无法完成节点,程序结束,在终端中按enter结束')
 input()
