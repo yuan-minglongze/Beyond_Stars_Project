@@ -7,7 +7,7 @@
 使用python语言和selenium库,进行网页自动操作.
 
 
-这是我写的第一个发布在GitHub上的开源程序,也是迄今为止我做的工程量最大的程序.耗掉了我三天时间
+这是我写的第一个发布在GitHub上的开源程序,也是迄今为止我做的工程量最大的程序.
 
 
 ## 目前已实现的功能
@@ -66,6 +66,21 @@
 安装完成后输入 `pip show selenium` 回车检查是否安装成功.成功后你应该看到界面如下:
 
 ![image](https://github.com/yuan-minglongze/beyondstars/assets/129572345/ded8d25e-fee5-4ae9-91d4-4bcad69fb569)
+
+
+
+## 开始运行程序
+
+打开 idle
+
+![image](https://github.com/yuan-minglongze/beyondstars/assets/129572345/b03b32ac-7138-419c-8c0c-6fb7d27be6f5)
+
+file -> open 打开beyondstars
+
+![image](https://github.com/yuan-minglongze/beyondstars/assets/129572345/7d068722-068c-482a-9abd-7c71e1b5b5d0)
+
+
+后面的操作请阅读我写在beyondstars开头的注释
 
 
 
