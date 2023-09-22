@@ -6,10 +6,15 @@
 
 使用python语言和selenium库,进行网页自动操作.
 
+
+这是我写的第一个发布在GitHub上的开源程序,也是迄今为止我做的工程量最大的程序.耗掉了我三天时间
+
+
 ## 目前已实现的功能
 
 自动打开网站,自动登录,自动检测当前学习进度,自动继续学习,自动播放视频,自动调整为2倍速,自动回答单选题,视频播放完成后自动跳转到下一小节.
 直到遇到多选题或者章节测试.
+
 
 
 ## 如何使用
@@ -17,13 +22,12 @@
 首先你需要准备运行环境,包括
 
 - **python**
-- selenium库
 - **Microsoft edge(windows10,11自带浏览器)**
 - **Microsoft edge webdriver**
-- 一个python编辑器(为了方便大家,在这里使用python IDLE)
 
 
-其中我加粗的是需要大家自行下载的(不过edge应该都有吧,所以大多数人应该只需要下载python和webdriver),你可以点击下面的链接自行下载
+你可以点击下面的链接自行下载
+(不过edge应该都有吧,所以大多数人应该只需要下载python和webdriver)
 
 
 [Python(包含python IDLE) 下载](https://www.python.org/downloads/)
