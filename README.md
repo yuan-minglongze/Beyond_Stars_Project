@@ -23,7 +23,7 @@
 ***
 
 
-## 保姆级教程(Windows)
+## 为Windows用户写的保姆级教程
 
 
 因为我只用过windows系统,所以在这里只用windows写教程
