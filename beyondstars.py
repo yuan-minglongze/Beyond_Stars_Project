@@ -13,9 +13,9 @@
 # 如果你已经按照readme.md操作过了,我们下面来做运行前的最后准备
 
 # 1. 请将下面的字符串内容改为你登录学习平台的电话号码,注意这是一个字符串,不要把引号和引号前面的r搞没了
-telephone = r"your telephone here"
+telephone = r"19307493070"
 # 2. 请将下面字符串内容改为你的密码,同样注意这是一个字符串,也不要把引号和r搞没了
-password = r"your password here"
+password = r"1234qwer"
 # 3. 最后输入你之前下载的msedgedriver.exe在你电脑中的地址,不知道地址怎样写的话请自行百度
 path = r'C:\Edge_WebDriver\msedgedriver.exe'
 # 4. 按F5(如果你用的是IDLE)运行这个脚本,不要再进行任何操作.直到程序新打开的浏览器被关闭,或者遇到多选题,章节测试.
@@ -104,110 +104,129 @@ print('章节信息载入完成')
 print('正在检测进度,可能耗时较长,请稍等...')
 for element in elements:
     print(f'正在检测{element.text}')
-    icons = element.find_elements(By.CLASS_NAME, 'catalog_tishi56')
-    if icons == []:
-        print(f'检测到未完成章节:{element.text}个未完成任务数')
-        break
-    else:
+    hint = element.find_element(By.CLASS_NAME, 'bntHoverTips')
+    print(hint.get_attribute("textContent"))
+    if hint.get_attribute("textContent") == '已完成':
         print(f'检测结果:{element.text}已完成')
         
+    else:
+        print(f'检测到未完成章节')
+        break 
         
-print('开始自动刷课')
+        
+print('开始自动刷课,首先进入课程')
 
 element.click()
 
+print('已进入该课程')
+
 
 speed = 1
- 
 
-while(1):
+
+while(1):   #进入每一个小节
+
     wd.switch_to.default_content()
     print('成功进入默认框架')
     
     wd.switch_to.frame('iframe')
     print('成功进入网页框架')
-    try:
-        wd.switch_to.frame(wd.find_element(By.CSS_SELECTOR, '[jobid]'))
+  
+    try:#尝试寻找视频
+        print('尝试进入视频')  
+        wd.switch_to.frame(wd.find_element(By.CSS_SELECTOR, '.ans-insertvideo-online'))
         print('成功进入视频框架')
+        
         print('尝试寻找视频资源')
-        videos = wd.find_elements(By.CLASS_NAME, 'vjs-big-play-button')
-        if videos != []:
+        video = wd.find_element(By.CLASS_NAME, 'vjs-big-play-button')   
+        print('找到视频,开始播放')
             
-            print('找到视频,开始播放')
-            for video in videos:
-                
-                complete = 0
-                video.click()
-                
-            if speed == 1:
-                #转2倍速
-                a = wd.find_element(By.CSS_SELECTOR, '[title="播放速度"]')
-                
-                for i in range(0,3):
-                    
-                    a.click()
-                    
-                speed = 2
+        complete = 0    #记录视频是否播放完成
+        
+        i = 0           #记录目前为第几选项
+        
+        video.click()   #开始播放视频
             
+        if speed == 1:  #转2倍速
             
-            #尝试答题
-            while(1):
+            a = wd.find_element(By.CSS_SELECTOR, '[title="播放速度"]')
+            
+            for m in range(0,3):
+                
+                a.click()
+                
+            speed = 2
+        
+        
+        #尝试答题
+        while(1):
+
+            try:        #尝试找题
+                
+                print("尝试找题")
+                element = wd.find_element(By.CLASS_NAME, 'tkTopic_title')
                 time.sleep(1)
-                try:
-                    element = wd.find_element(By.CLASS_NAME, 'tkTopic_title')
-                    print('找到问题')
+                print('找到问题')
                 
+                wd.find_element(By.CSS_SELECTOR, f'.tkItem_ul > li:nth-child({i % 4 + 1})').click()
+                print(f'选中第{i % 4 + 1}项')
+
+                print('点击提交')
+                try:    #继续选择到提交按钮消失
                     while(1):
-                        for i in [1,2,3,4]:
-                            time.sleep(1)
-                            try:
-                                wd.find_element(By.CSS_SELECTOR, f'.tkItem_ul > li:nth-child({i})').click()
-                                print(f'尝试第{i}项')
-                                wd.find_element(By.ID, 'videoquiz-submit').click()
-                                print('点击提交')
-                                
-                            except:
-                                try:
-                                    wd.find_element(By.ID, 'videoquiz-continue').click()
-                                    print('点击继续')
-                                except:
-                                    pass
-                        element = wd.find_element(By.CSS_SELECTOR, '[aria-valuenow]')
-                        if element.get_attribute('aria-valuenow') == "100.00":
-                            complete = 1
-                            break
-                except: 
-                    if complete == 1:
-                        break
+                        time.sleep(0.5)
+                        i += 1
+                        wd.find_element(By.CSS_SELECTOR, f'.tkItem_ul > li:nth-child({i % 4 + 1})').click()
+                        print(f'选中第{i % 4 + 1}项')
+                        wd.find_element(By.ID, 'videoquiz-submit').click()
+                        print('尝试提交')
+                        
+                except:     #提交按钮消失后尝试点击继续
+                    try:        #尝试点击一次继续
+                            wd.find_element(By.ID, 'videoquiz-continue').click()
+                            print('点击继续')
+
+                            
+                    except:     #一次都没有,说明答对
+                        pass
+                    finally:    #有继续,说明答错,继续点到没有继续按钮
+                        try:
+                            while(1):
+                                wd.find_element(By.ID, 'videoquiz-continue').click()
+                                print('点击继续')
+                        except:
+                            pass
+                        
+            except:    #没找到题或者题目完成,判断视频是否播放完
+                if wd.find_element(By.CSS_SELECTOR, '[aria-valuenow]').get_attribute('aria-valuenow') == "100.00":
+                    complete = 1
+                    print('视频结束')
+                    
+                    break
     except:
         pass
-                                
-                                
-                            
-            
     finally:
         wd.switch_to.default_content()
         print('成功进入默认框架')
         wd.find_element(By.ID, 'prevNextFocusNext').click()
         print('进入下一节')
-        try:
-            time.sleep(2)
-            wd.find_element(By.ID, 'popHeadFocusImg').click()
-            break
-        except:
-            pass
-        finally:
-            pass
-
-
-# print('你想刷第几章?(输入阿拉伯数字1,2,3等),如果想刷多章,不同章需要用空格空开,例如想刷全部十个章节,请输入1 2 3 4 5 6 7 8 9 10按enter')
-# numbers1 = input('章序号: ').split( )
-# numbers = [int(numbers1[i]) for i in range(len(numbers1))]
-
-# for number in numbers:
-
-#     element = elements[number]
-#     element1 = element.find_element(By.)
-
-print('检测到章节检测,程序停止,在终端中按enter结束程序')
+        # try:    #判断是否有未完成任务,有的话退出程序
+        #     time.sleep(2)
+        #     wd.find_element(By.ID, 'popHeadFocusImg').click()
+        #     break
+        # finally:
+        #      pass
+         
+         
+print('检测到无法完成节点,程序停止,在终端中按enter结束程序')
 input()
+
+# # print('你想刷第几章?(输入阿拉伯数字1,2,3等),如果想刷多章,不同章需要用空格空开,例如想刷全部十个章节,请输入1 2 3 4 5 6 7 8 9 10按enter')
+# # numbers1 = input('章序号: ').split( )
+# # numbers = [int(numbers1[i]) for i in range(len(numbers1))]
+
+# # for number in numbers:
+
+# #     element = elements[number]
+# #     element1 = element.find_element(By.)
+
